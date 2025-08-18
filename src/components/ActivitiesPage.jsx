@@ -1,34 +1,25 @@
-import { useEffect, useState } from 'react';
-import { useApi } from '../context/ApiContext';
+import useQuery from '../context/api/useQuery';
+import Loading from './Loading';
 
-export default function ActivitiesPage() {
-  const { request } = useApi();
-  const [activities, setActivities] = useState([]);
+const RESOURCE = '/activities';
 
-  useEffect(() => {
-    const fetchActivities = async () => {
-      try {
-        const data = await request('/activities');
+const ActivitiesPage = () => {
+  const { data: activities, loading } = useQuery(RESOURCE);
 
-        setActivities(data);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-
-    fetchActivities();
-
-    console.log(activities);
-  }, []);
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <>
       <h1>Activities</h1>
       <ul>
-        {activities.map((activity) => (
+        {activities?.map((activity) => (
           <li key={activity.id}>{activity.name}</li>
         ))}
       </ul>
     </>
   );
-}
+};
+
+export default ActivitiesPage;
