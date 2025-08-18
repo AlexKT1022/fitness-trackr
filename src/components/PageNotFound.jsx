@@ -1,5 +1,5 @@
 /** Error page for when user tries to access a page that is not found */
-export default function Error404() {
+export default function PageNotFound() {
   return (
     <>
       <h1>404</h1>

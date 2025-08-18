@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { useAuth } from "./AuthContext";
-import { usePage } from "../layout/PageContext";
+import { useState } from 'react';
+import { useAuth } from '../context/AuthContext';
+import { usePage } from '../context/PageContext';
 
 /** A form that allows users to log into an existing account. */
 export default function Login() {
@@ -10,11 +10,11 @@ export default function Login() {
   const [error, setError] = useState(null);
 
   const tryLogin = async (formData) => {
-    const username = formData.get("username");
-    const password = formData.get("password");
+    const username = formData.get('username');
+    const password = formData.get('password');
     try {
       await login({ username, password });
-      setPage("activities");
+      setPage('activities');
     } catch (e) {
       setError(e.message);
     }
@@ -26,16 +26,24 @@ export default function Login() {
       <form action={tryLogin}>
         <label>
           Username
-          <input type="text" name="username" required />
+          <input
+            type="text"
+            name="username"
+            required
+          />
         </label>
         <label>
           Password
-          <input type="password" name="password" required />
+          <input
+            type="password"
+            name="password"
+            required
+          />
         </label>
         <button>Login</button>
         {error && <output>{error}</output>}
       </form>
-      <a onClick={() => setPage("register")}>Need an account? Register here.</a>
+      <a onClick={() => setPage('register')}>Need an account? Register here.</a>
     </>
   );
 }

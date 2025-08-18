@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { useAuth } from "./AuthContext";
-import { usePage } from "../layout/PageContext";
+import { useState } from 'react';
+import { useAuth } from '../context/AuthContext';
+import { usePage } from '../context/PageContext';
 
 /** A form that allows users to register for a new account */
 export default function Register() {
@@ -10,11 +10,11 @@ export default function Register() {
   const [error, setError] = useState(null);
 
   const tryRegister = async (formData) => {
-    const username = formData.get("username");
-    const password = formData.get("password");
+    const username = formData.get('username');
+    const password = formData.get('password');
     try {
       await register({ username, password });
-      setPage("activities");
+      setPage('activities');
     } catch (e) {
       setError(e.message);
     }
@@ -26,16 +26,24 @@ export default function Register() {
       <form action={tryRegister}>
         <label>
           Username
-          <input type="text" name="username" required />
+          <input
+            type="text"
+            name="username"
+            required
+          />
         </label>
         <label>
           Password
-          <input type="password" name="password" required />
+          <input
+            type="password"
+            name="password"
+            required
+          />
         </label>
         <button>Register</button>
         {error && <output>{error}</output>}
       </form>
-      <a onClick={() => setPage("login")}>
+      <a onClick={() => setPage('login')}>
         Already have an account? Log in here.
       </a>
     </>
