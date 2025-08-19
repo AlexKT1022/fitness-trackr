@@ -3,7 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import { usePage } from '../context/PageContext';
 
 /** A form that allows users to log into an existing account. */
-export default function Login() {
+const Login = () => {
   const { login } = useAuth();
   const { setPage } = usePage();
   const [error, setError] = useState(null);
@@ -47,4 +47,6 @@ export default function Login() {
       <a onClick={() => setPage('register')}>Need an account? Register here.</a>
     </>
   );
-}
+};
+
+export default Login;

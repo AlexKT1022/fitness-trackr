@@ -25,6 +25,7 @@ const NewActivityForm = () => {
         <input
           name="activityName"
           type="text"
+          required
         />
       </label>
       <label>
@@ -32,6 +33,7 @@ const NewActivityForm = () => {
         <input
           name="description"
           type="text"
+          required
         />
       </label>
       <button>Add Activity</button>
