@@ -41,3 +41,18 @@ ul,
 ol {
   padding-left: 1rem;
 }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-icon {
+  height: 50%;
+  width: 50%;
+  animation: spin 1s infinite linear;
+}
