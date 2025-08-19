@@ -1,5 +1,5 @@
-import useMutation from '../context/api/useMutation';
 import { useAuth } from '../context/AuthContext';
+import useMutation from '../context/api/useMutation';
 
 const RESOURCE = '/activities';
 

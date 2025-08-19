@@ -1,7 +1,7 @@
 import { usePage } from './context/PageContext';
 import Register from './components/Register';
 import Login from './components/Login';
-import ActivitiesPage from './components/ActivitiesPage';
+import ActivitiesPage from './pages/ActivitiesPage';
 import PageNotFound from './components/PageNotFound';
 
 /**

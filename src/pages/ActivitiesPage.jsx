@@ -1,9 +1,10 @@
 import { useAuth } from '../context/AuthContext';
 import useQuery from '../context/api/useQuery';
 import useMutation from '../context/api/useMutation';
-import ActivityCard from './ActivityCard';
-import Loading from './Loading';
-import NewActivityForm from './NewActivityForm';
+import ActivityCard from '../components/ActivityCard';
+import Loading from '../components/Loading';
+import NewActivityForm from '../components/NewActivityForm';
+import ActivityList from '../components/ActivityList';
 
 const RESOURCE = '/activities';
 
@@ -24,14 +25,7 @@ const ActivitiesPage = () => {
   return (
     <>
       <h1>Activities</h1>
-      <ul>
-        {activities?.map((activity) => (
-          <ActivityCard
-            key={activity.id}
-            activity={activity}
-          />
-        ))}
-      </ul>
+      <ActivityList activities={activities} />
       {user && <NewActivityForm />}
     </>
   );
