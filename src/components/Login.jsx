@@ -6,17 +6,18 @@ import { usePage } from '../context/PageContext';
 export default function Login() {
   const { login } = useAuth();
   const { setPage } = usePage();
-
   const [error, setError] = useState(null);
 
   const tryLogin = async (formData) => {
     const username = formData.get('username');
     const password = formData.get('password');
+
     try {
       await login({ username, password });
+
       setPage('activities');
-    } catch (e) {
-      setError(e.message);
+    } catch (err) {
+      setError(err.message);
     }
   };
 

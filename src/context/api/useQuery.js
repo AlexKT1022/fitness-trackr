@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useApi } from '../ApiContext';
 
 /** Queries the API and returns the data, loading status, and error message. */
-export default function useQuery(resource, tag) {
+const useQuery = (resource, tag) => {
   const { request, provideTag } = useApi();
   const [data, setData] = useState();
   const [loading, setLoading] = useState(false);
@@ -31,4 +31,6 @@ export default function useQuery(resource, tag) {
   }, []);
 
   return { data, loading, error };
-}
+};
+
+export default useQuery;
