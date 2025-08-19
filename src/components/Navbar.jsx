@@ -2,7 +2,7 @@ import { useAuth } from '../context/AuthContext';
 import { usePage } from '../context/PageContext';
 
 /** Navbar with site navigation links */
-export default function Navbar() {
+const Navbar = () => {
   const { token, logout } = useAuth();
   const { setPage } = usePage();
   return (
@@ -21,4 +21,6 @@ export default function Navbar() {
       </nav>
     </header>
   );
-}
+};
+
+export default Navbar;

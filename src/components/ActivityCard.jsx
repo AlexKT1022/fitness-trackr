@@ -1,5 +1,5 @@
-import useMutation from '../context/api/useMutation';
 import { useAuth } from '../context/AuthContext';
+import useMutation from '../context/api/useMutation';
 
 const RESOURCE = '/activities';
 
@@ -8,7 +8,7 @@ const ActivityCard = ({ activity }) => {
   const { mutate } = useMutation(
     'DELETE',
     RESOURCE + `/${activity.id.toString()}`,
-    [],
+    ['activities'],
   );
 
   const handleDelete = () => {

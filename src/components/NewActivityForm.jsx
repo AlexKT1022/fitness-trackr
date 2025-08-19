@@ -1,13 +1,11 @@
 import useMutation from '../context/api/useMutation';
 import { useAuth } from '../context/AuthContext';
-import { usePage } from '../context/PageContext';
 
 const RESOURCE = '/activities';
 
 const NewActivityForm = () => {
   const { user } = useAuth();
-  const { mutate } = useMutation('POST', RESOURCE, []);
-  const { setPage } = usePage();
+  const { mutate } = useMutation('POST', RESOURCE, ['activities']);
 
   const handleSubmit = (FormData) => {
     const activityObj = {
@@ -17,8 +15,6 @@ const NewActivityForm = () => {
     };
 
     mutate(activityObj);
-
-    setPage('activities');
   };
 
   return (

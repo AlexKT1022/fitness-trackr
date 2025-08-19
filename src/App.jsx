@@ -9,7 +9,7 @@ import PageNotFound from './components/PageNotFound';
  * discover new routines. Anyone can browse the site and make an account, and users with an
  * account will be able to upload and manage their own activities.
  */
-export default function App() {
+const App = () => {
   const { page } = usePage();
 
   if (page === 'register') return <Register />;
@@ -17,4 +17,6 @@ export default function App() {
   if (page === 'activities') return <ActivitiesPage />;
 
   return <PageNotFound />;
-}
+};
+
+export default App;

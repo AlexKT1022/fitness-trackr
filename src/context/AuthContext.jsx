@@ -3,13 +3,12 @@
  * It provides functions for the user to register, log in, and log out,
  * all of which update the token in state.
  */
-
 import { createContext, useContext, useState } from 'react';
 import { API } from './ApiContext';
 
 const AuthContext = createContext();
 
-export function AuthProvider({ children }) {
+export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState();
   const [user, setUser] = useState();
 
@@ -59,10 +58,10 @@ export function AuthProvider({ children }) {
   const value = { token, user, register, login, logout };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
-}
+};
 
-export function useAuth() {
+export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) throw Error('useAuth must be used within AuthProvider');
   return context;
-}
+};

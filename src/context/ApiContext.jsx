@@ -2,7 +2,6 @@
  * ApiContext attaches the user's authentication token to API requests when possible.
  * It also handles tags to refresh appropriate queries after a mutation.
  */
-
 import { createContext, useContext, useState } from 'react';
 import { useAuth } from './AuthContext';
 
@@ -10,7 +9,7 @@ export const API = 'https://fitnesstrac-kr.herokuapp.com/api';
 
 const ApiContext = createContext();
 
-export function ApiProvider({ children }) {
+export const ApiProvider = ({ children }) => {
   const { token } = useAuth();
   const headers = { 'Content-Type': 'application/json' };
   const [tags, setTags] = useState({});
@@ -62,7 +61,7 @@ export function ApiProvider({ children }) {
   };
 
   return <ApiContext.Provider value={value}>{children}</ApiContext.Provider>;
-}
+};
 
 export const useApi = () => {
   const context = useContext(ApiContext);

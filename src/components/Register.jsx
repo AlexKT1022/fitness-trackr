@@ -3,7 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import { usePage } from '../context/PageContext';
 
 /** A form that allows users to register for a new account */
-export default function Register() {
+const Register = () => {
   const { register } = useAuth();
   const { setPage } = usePage();
 
@@ -48,4 +48,6 @@ export default function Register() {
       </a>
     </>
   );
-}
+};
+
+export default Register;

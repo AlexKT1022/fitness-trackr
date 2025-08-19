@@ -1,6 +1,6 @@
-import useMutation from '../context/api/useMutation';
-import useQuery from '../context/api/useQuery';
 import { useAuth } from '../context/AuthContext';
+import useQuery from '../context/api/useQuery';
+import useMutation from '../context/api/useMutation';
 import ActivityCard from './ActivityCard';
 import Loading from './Loading';
 import NewActivityForm from './NewActivityForm';
@@ -8,9 +8,14 @@ import NewActivityForm from './NewActivityForm';
 const RESOURCE = '/activities';
 
 const ActivitiesPage = () => {
-  const { data: activities, loading: queryLoading } = useQuery(RESOURCE);
   const { user } = useAuth();
-  const { loading: mutationLoading } = useMutation('POST', RESOURCE, []);
+  const { data: activities, loading: queryLoading } = useQuery(
+    RESOURCE,
+    'activities',
+  );
+  const { loading: mutationLoading } = useMutation('POST', RESOURCE, [
+    'activities',
+  ]);
 
   if (queryLoading || mutationLoading) {
     return <Loading />;
