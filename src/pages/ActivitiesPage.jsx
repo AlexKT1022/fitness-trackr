@@ -1,7 +1,6 @@
 import { useAuth } from '../context/AuthContext';
 import useQuery from '../context/api/useQuery';
 import useMutation from '../context/api/useMutation';
-import ActivityCard from '../components/ActivityCard';
 import Loading from '../components/Loading';
 import NewActivityForm from '../components/NewActivityForm';
 import ActivityList from '../components/ActivityList';
